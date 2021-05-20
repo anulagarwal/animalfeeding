@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893c5a76e9074da180f85011dddf3202, type: 3}
+  m_Name: ToolsSettings
+  m_EditorClassIdentifier: 
+  isOn: 1
+  separatorName: --------------------
+  contentToBorderProportion: 10
+  spaceSize: 2
+  isPopup: 0
+  sceneCellsColors: {r: 0.3699646, g: 1, b: 0.33490568, a: 1}
+  prefabCellsColor: {r: 0.43867922, g: 0.8037452, b: 1, a: 1}
+  scriptableCellsColor: {r: 0, g: 0, b: 0, a: 0}
+  sceneCellsVisible: 1
+  projectCellsVisible: 1
+  scriptableCellsVisible: 1
+  showScenesScriptable: 0
+  showGameScriptable: 1
+  showUIScriptable: 1
+  showToolsScriptable: 0

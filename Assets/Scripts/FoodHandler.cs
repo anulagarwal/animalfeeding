@@ -7,7 +7,7 @@ public class FoodHandler : MonoBehaviour
     #region Attributes
     [Header("Attributes")]
     [SerializeField] float spawnRate;
-    [SerializeField] int maxSpawn;
+    // [SerializeField] int maxSpawn;
     int currentSpawned;
     float startTime;
     bool isSpawning;

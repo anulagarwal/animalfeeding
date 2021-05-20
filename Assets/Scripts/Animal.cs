@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
@@ -40,6 +42,13 @@ public class Animal : MonoBehaviour
     void Start()
     {
         currentPatience = (maxPatience/3)*2;
+
+        // var folder = GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform;
+        // foreach (Transform child in folder)
+        // {
+        //     child.GetComponentInChildren<Image>().color = 
+        //         GameplaySettings.Instance.normalDotColor;
+        // }
     }
 
     // Update is called once per frame
@@ -94,7 +103,9 @@ public class Animal : MonoBehaviour
     public void Eat()
     {
         AnimalManager.Instance.UpdateProgressBar(1);
-        GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform.GetChild(currentFoodInput).GetComponent<Image>().color = Color.red;
+        GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform
+                .GetChild(currentFoodInput).GetComponentInChildren<Image>().color =
+            GameplaySettings.Instance.filledDotColor;
         currentFoodInput++;
 
         if (currentFoodInput== maxFoodInput)

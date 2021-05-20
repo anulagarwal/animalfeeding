@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
+    private bool _gameStarted;
+    
     public static GameManager Instance = null;
 
     public enum State { MainMenu, InGame, Win, Lose};
@@ -48,7 +51,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (DInput.IsMousePressed)
+            StartLevel();
     }
 
     #endregion
@@ -56,6 +60,11 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
+        if (_gameStarted)
+            return;
+
+        _gameStarted = true;
+        
         ChangeState(State.InGame);
         AnimalManager.Instance.EnableAnimals();
     }
