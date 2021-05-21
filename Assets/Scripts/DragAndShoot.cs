@@ -13,6 +13,8 @@ public class DragAndShoot : MonoBehaviour
 
     float forceMultiplier = 2;
 
+   public bool isDrag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,30 +22,16 @@ public class DragAndShoot : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {     
-        mousePressDownPos = Input.mousePosition;
+    {
+        if (!AnimalManager.Instance.isTrajectoryOn)
+        {
+            AnimalManager.Instance.isTrajectoryOn = true;
+            mousePressDownPos = Input.mousePosition;
+            isDrag = true;
+        }
     }
 
-    private void OnMouseDrag()
-    {
-        Vector3 forceInit = (Input.mousePosition - mousePressDownPos);
-        Vector3 forceV = new Vector3(forceInit.x, forceInit.y/2, forceInit.y) * forceMultiplier;
 
-        if(!isShoot)
-        DrawTrajectory.Instance.UpdateTrajectory(forceV, rb, transform.position);
-    }
-
-    private void OnMouseExit()
-    {
-        DrawTrajectory.Instance.HideLine();
-    }
-    private void OnMouseUp()
-    {
-        DrawTrajectory.Instance.HideLine();
-        mouseReleasePos = Input.mousePosition;
-        Shoot(mousePressDownPos - mouseReleasePos);
-        transform.parent = null;
-    }
 
     void Shoot(Vector3 force)
     {
@@ -54,8 +42,26 @@ public class DragAndShoot : MonoBehaviour
         isShoot = true;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (isDrag)
+        {
+            Vector3 forceInit = (Input.mousePosition - mousePressDownPos);
+            Vector3 forceV = new Vector3(forceInit.x, forceInit.y / 2, forceInit.y) * forceMultiplier;
+
+            if (!isShoot)
+                DrawTrajectory.Instance.UpdateTrajectory(forceV, rb, transform.position);
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                DrawTrajectory.Instance.HideLine();
+                mouseReleasePos = Input.mousePosition;
+                Shoot(mousePressDownPos - mouseReleasePos);
+                transform.parent = null;
+                isDrag = false;
+                AnimalManager.Instance.isTrajectoryOn = false;
+            }
+        }
         
     }
 }

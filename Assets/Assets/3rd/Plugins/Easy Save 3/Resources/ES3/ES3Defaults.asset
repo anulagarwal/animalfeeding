@@ -30,12 +30,12 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
-    - MPUIKit
-    - UltEvents
-    - Boxophobic.Utils.Scripts
     - Cinemachine
-    - MPUIKit.Editor
+    - UltEvents
+    - MPUIKit
+    - Boxophobic.Utils.Scripts
     - Boxophobic.Utils.Editor
+    - MPUIKit.Editor
     - Boxophobic.SkyboxCubemapExtended.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

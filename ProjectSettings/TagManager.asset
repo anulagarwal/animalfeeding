@@ -8,6 +8,8 @@ TagManager:
   - Food
   - LineRenderer
   - Missile
+  - Sphere
+  - Ground
   layers:
   - Default
   - TransparentFX

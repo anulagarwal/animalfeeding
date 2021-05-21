@@ -13,6 +13,7 @@ public class AnimalManager : MonoBehaviour
     [SerializeField] List<Animal> animals;
     [SerializeField] float maxProgressValue;
     [SerializeField] float currentProgressValue;
+    public bool isTrajectoryOn;
 
 
     [Header("Component References")]

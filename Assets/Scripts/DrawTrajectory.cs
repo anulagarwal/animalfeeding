@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DrawTrajectory : MonoBehaviour
 {
-    [SerializeField] private LineRenderer _lineRenderer;
+
 
     [SerializeField]
     [Range(3, 30)]
     private int _lineSegmentCount=40;
 
     private List<Vector3> _linePoints = new List<Vector3>();
-    private List<GameObject> _sphere = new List<GameObject>();
+    [SerializeField] private List<GameObject> _sphere = new List<GameObject>();
 
 
 
@@ -25,7 +25,7 @@ public class DrawTrajectory : MonoBehaviour
     #endregion
     void Start()
     {
-        _lineRenderer = GameObject.FindGameObjectWithTag("LineRenderer").GetComponent<LineRenderer>();
+        
     }
 
     public void UpdateTrajectory(Vector3 forceVector, Rigidbody rigidbody, Vector3 startingPoint)
@@ -49,9 +49,7 @@ public class DrawTrajectory : MonoBehaviour
                 );
             _linePoints.Add(-MovementVector + startingPoint);
         }
-        _lineRenderer.positionCount = _linePoints.Count;
-        _lineRenderer.SetPositions(_linePoints.ToArray());
-        print(_linePoints.Count);
+      
         foreach(Vector3 v in _linePoints)
         {
             _sphere.Add(Instantiate(GameManager.Instance.sphere, v, Quaternion.identity));
@@ -60,7 +58,7 @@ public class DrawTrajectory : MonoBehaviour
 
     public void HideLine()
     {
-        _lineRenderer.positionCount = 0;
+       
         foreach (GameObject g in _sphere)
         {
             Destroy(g);
@@ -82,5 +80,6 @@ public class DrawTrajectory : MonoBehaviour
             _sphere.Clear();
 
         }
+      
     }
 }
