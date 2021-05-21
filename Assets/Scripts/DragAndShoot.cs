@@ -51,13 +51,21 @@ public class DragAndShoot : MonoBehaviour
 
             if (!isShoot)
                 DrawTrajectory.Instance.UpdateTrajectory(forceV, rb, transform.position);
+            mouseReleasePos = Input.mousePosition;
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y>100)
             {
-                DrawTrajectory.Instance.HideLine();
                 mouseReleasePos = Input.mousePosition;
+
+                DrawTrajectory.Instance.HideLine();
                 Shoot(mousePressDownPos - mouseReleasePos);
                 transform.parent = null;
+                isDrag = false;
+                AnimalManager.Instance.isTrajectoryOn = false;
+            }
+            else if(Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y < 100)
+            {
+                DrawTrajectory.Instance.HideLine();
                 isDrag = false;
                 AnimalManager.Instance.isTrajectoryOn = false;
             }

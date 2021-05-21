@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  scaleDownRate: 0.02
+  scaleDownRate: 0.01
 --- !u!114 &2425519434642056874
 MonoBehaviour:
   m_ObjectHideFlags: 0

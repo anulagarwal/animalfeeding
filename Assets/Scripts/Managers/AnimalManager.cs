@@ -18,7 +18,6 @@ public class AnimalManager : MonoBehaviour
 
     [Header("Component References")]
     [SerializeField] Image progressBar;
-    [SerializeField] GameObject dot;
 
 
     int animalsFed;
@@ -43,7 +42,6 @@ public class AnimalManager : MonoBehaviour
         
         DisableAnimals();
         UpdateProgressBar(0);
-        UpdateAnimalDots();
     }
 
     // Update is called once per frame
@@ -73,17 +71,7 @@ public class AnimalManager : MonoBehaviour
 
     public void UpdateAnimalDots()
     {
-        foreach(Animal a in animals)
-        {
-
-            maxProgressValue += a.maxFoodInput;
-            for (int i = 0; i < a.maxFoodInput; i++)
-            {
-                GameObject g = Instantiate(dot, Vector3.zero, Quaternion.identity);
-                g.transform.SetParent(a.GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform);
-                g.transform.localPosition = Vector3.zero;
-            }
-        }
+        
 
     }
 

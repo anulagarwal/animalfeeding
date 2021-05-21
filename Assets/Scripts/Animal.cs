@@ -33,6 +33,7 @@ public class Animal : MonoBehaviour
     [SerializeField] Image patienceBar;
     [SerializeField] Animator animator;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Image tick;
 
 
     #endregion
@@ -102,10 +103,7 @@ public class Animal : MonoBehaviour
 
     public void Eat()
     {
-        AnimalManager.Instance.UpdateProgressBar(1);
-        GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform
-                .GetChild(currentFoodInput).GetComponentInChildren<Image>().color =
-            GameplaySettings.Instance.filledDotColor;
+        AnimalManager.Instance.UpdateProgressBar(1);        
         currentFoodInput++;
 
         if (currentFoodInput== maxFoodInput)
@@ -114,6 +112,7 @@ public class Animal : MonoBehaviour
             AnimalManager.Instance.UpdateAnimalHunger();
             GetComponentInChildren<Canvas>().gameObject.SetActive(false);
             isHungry = false;
+            tick.gameObject.SetActive(true);
         }
 
         IncreasePatience(foodPatienceIncrease);

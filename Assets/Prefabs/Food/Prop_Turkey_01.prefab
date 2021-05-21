@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  scaleDownRate: 0.02
+  scaleDownRate: 0.01

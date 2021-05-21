@@ -6,7 +6,7 @@ public class Food : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] public EnumsManager.FoodType type;
-    [SerializeField] public float scaleDownRate = 0.02f;
+    [SerializeField] public float scaleDownRate = 0.01f;
     bool isDying;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class Food : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isDying = true;
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 1.4f);
         }
     }
 }
