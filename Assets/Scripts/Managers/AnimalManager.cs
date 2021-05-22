@@ -10,7 +10,7 @@ public class AnimalManager : MonoBehaviour
 
     #region Attributes
     [Header("Attributes")]
-    [SerializeField] List<Animal> animals;
+    [SerializeField] public List<Animal> animals;
     [SerializeField] float maxProgressValue;
     [SerializeField] float currentProgressValue;
     public bool isTrajectoryOn;
@@ -20,7 +20,7 @@ public class AnimalManager : MonoBehaviour
     [SerializeField] Image progressBar;
 
 
-    int animalsFed;
+    public int animalsFed;
     bool isLevelOn;
     #endregion
 

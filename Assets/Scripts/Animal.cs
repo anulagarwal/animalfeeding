@@ -14,13 +14,10 @@ public class Animal : MonoBehaviour
     [Header("Attributes")]
    
     [SerializeField] private EnumsManager.AnimalType animalType;
-    [SerializeField] private List<EnumsManager.FoodType> preferredFood;
+    [SerializeField] public List<EnumsManager.FoodType> preferredFood;
     [SerializeField] public int currentFoodInput;
     [SerializeField] public int maxFoodInput;
-
-
-
-    private bool isHungry = true;   
+    public bool isHungry = true;   
     [SerializeField] private float scaleIncrease = 0.08f;
 
     [Header("Patience Bar Attributes")]
@@ -43,13 +40,6 @@ public class Animal : MonoBehaviour
     void Start()
     {
         currentPatience = (maxPatience/3)*2;
-
-        // var folder = GetComponentInChildren<Canvas>().GetComponentInChildren<HorizontalLayoutGroup>().transform;
-        // foreach (Transform child in folder)
-        // {
-        //     child.GetComponentInChildren<Image>().color = 
-        //         GameplaySettings.Instance.normalDotColor;
-        // }
     }
 
     // Update is called once per frame

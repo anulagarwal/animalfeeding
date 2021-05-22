@@ -7,14 +7,14 @@ public class FoodHandler : MonoBehaviour
     #region Attributes
     [Header("Attributes")]
     [SerializeField] float spawnRate;
-    // [SerializeField] int maxSpawn;
-    int currentSpawned;
-    float startTime;
-    bool isSpawning;
 
     [Header("Component References")]
     [SerializeField] List<GameObject> foodItems;
     [SerializeField] List<Transform> spawnPoints;
+
+
+    private float startTime;
+    private bool isSpawning;
 
     #endregion
 
@@ -33,14 +33,40 @@ public class FoodHandler : MonoBehaviour
         {
             startTime = Time.time;
             isSpawning = false;
-            foreach (Transform t in spawnPoints)
+            if (AnimalManager.Instance.animalsFed == 0)
             {
-                if (t.childCount == 0)
+                foreach (Transform t in spawnPoints)
                 {
-                    SpawnItem(foodItems[Random.Range(0,foodItems.Count)], Vector3.zero, t);
-                    break;
+                    if (t.childCount == 0)
+                    {
+                        SpawnItem(foodItems[Random.Range(0, foodItems.Count)], Vector3.zero, t);
+                        break;
+                    }
                 }
             }
+            else if(AnimalManager.Instance.animalsFed < AnimalManager.Instance.animals.Count)
+            {
+                List<EnumsManager.FoodType> availableType = new List<EnumsManager.FoodType>();
+
+                foreach(Animal a in AnimalManager.Instance.animals)
+                {
+                    if (a.isHungry)
+                    {
+                        availableType.AddRange(a.preferredFood); 
+                    }
+                }
+
+                foreach (Transform t in spawnPoints)
+                {
+                    if (t.childCount == 0)
+                    {                        
+                        EnumsManager.FoodType f = availableType[Random.Range(0, availableType.Count)];                        
+                        SpawnItem(foodItems.Find( x=> x.GetComponent<Food>().type== f), Vector3.zero, t);
+                        break;
+                    }
+                }
+            }
+
         }
 
         if (!isSpawning)
