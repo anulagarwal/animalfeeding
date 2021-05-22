@@ -42,6 +42,10 @@ public class AnimalManager : MonoBehaviour
         
         DisableAnimals();
         UpdateProgressBar(0);
+        foreach(Animal a in animals)
+        {
+            maxProgressValue += a.maxFoodInput;
+        }
     }
 
     // Update is called once per frame

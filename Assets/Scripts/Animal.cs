@@ -39,7 +39,7 @@ public class Animal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = (maxPatience/3)*2;
+        currentPatience = (maxPatience/3)*2; 
     }
 
     // Update is called once per frame
@@ -95,20 +95,24 @@ public class Animal : MonoBehaviour
     {
         AnimalManager.Instance.UpdateProgressBar(1);        
         currentFoodInput++;
-
+        tick.gameObject.SetActive(true);
+        Invoke("DisableTick", 1f);
         if (currentFoodInput== maxFoodInput)
         {
             Walk(GameManager.Instance.escapePos.position, animalType);
             AnimalManager.Instance.UpdateAnimalHunger();
             GetComponentInChildren<Canvas>().gameObject.SetActive(false);
             isHungry = false;
-            tick.gameObject.SetActive(true);
+           
         }
 
         IncreasePatience(foodPatienceIncrease);
         ScaleIncrease();
     }
-    
+    public void DisableTick()
+    {
+        tick.gameObject.SetActive(false);
+    }
 
     public void Walk(Vector3 pos, EnumsManager.AnimalType type)
     {
