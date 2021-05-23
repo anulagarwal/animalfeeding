@@ -127,6 +127,13 @@ public class Animal : MonoBehaviour
             case EnumsManager.AnimalType.Bear:
                 animator.SetBool("isWalking", true);
                 break;
+            case EnumsManager.AnimalType.Giraffe:
+                animator.SetBool("isWalking", true);
+                break;
+
+            case EnumsManager.AnimalType.Dog:
+                animator.SetBool("isWalking", true);
+                break;
         }
         agent.SetDestination(pos);
     }
