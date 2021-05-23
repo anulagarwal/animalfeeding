@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using D2D.Gameplay;
+using D2D.Utilities;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
@@ -39,7 +41,7 @@ public class Animal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPatience = (maxPatience/3)*2; 
+        currentPatience = maxPatience * GameplaySettings.Instance.patienceOnStart.RandomFloat();
     }
 
     // Update is called once per frame
@@ -96,6 +98,7 @@ public class Animal : MonoBehaviour
         AnimalManager.Instance.UpdateProgressBar(1);        
         currentFoodInput++;
         tick.gameObject.SetActive(true);
+        tick.GetComponent<DOTweenAnimation>().DORestart();
         Invoke("DisableTick", 1f);
         if (currentFoodInput== maxFoodInput)
         {

@@ -10,10 +10,12 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/Gameplay/Data/GameplaySettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Managers/AnimalManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DrawTrajectory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/Gameplay/Data/GameplaySettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FoodHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DragAndShoot.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1soIxHGk8VyhOe21eVZd6s0Xeu8" />
@@ -61,6 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1621532759466</updated>
       <workItem from="1621532769486" duration="3023000" />
+      <workItem from="1621679581638" duration="601000" />
+      <workItem from="1621760682768" duration="2971000" />
     </task>
     <servers />
   </component>

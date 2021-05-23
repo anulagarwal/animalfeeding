@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Utilities;
 using UnityEngine;
 
 public class DrawTrajectory : MonoBehaviour
@@ -58,11 +59,11 @@ public class DrawTrajectory : MonoBehaviour
 
     public void HideLine()
     {
-       
-        foreach (GameObject g in _sphere)
+        for (var i = 0; i < _sphere.Count; i++)
         {
-            Destroy(g);
+            Destroy(_sphere[i]);
         }
+
         _sphere.Clear();
     }
     // Start is called before the first frame update
@@ -71,14 +72,9 @@ public class DrawTrajectory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (DInput.IsMouseReleased)
         {
-            foreach (GameObject g in _sphere)
-            {
-                Destroy(g);
-            }
-            _sphere.Clear();
-
+            HideLine();
         }
       
     }

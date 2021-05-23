@@ -13,5 +13,9 @@ namespace D2D.Gameplay
     {
         public Color normalDotColor;
         public Color filledDotColor;
+
+        [Space] 
+        
+        public Vector2 patienceOnStart;
     }
 }

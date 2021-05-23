@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Utilities;
 using UnityEngine;
 
 public class FoodHandler : MonoBehaviour
@@ -28,7 +29,6 @@ public class FoodHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (startTime + spawnRate < Time.time && isSpawning)
         {
             startTime = Time.time;
@@ -39,7 +39,7 @@ public class FoodHandler : MonoBehaviour
                 {
                     if (t.childCount == 0)
                     {
-                        SpawnItem(foodItems[Random.Range(0, foodItems.Count)], Vector3.zero, t);
+                        SpawnItem(foodItems.GetRandomElement(), Vector3.zero, t);
                         break;
                     }
                 }

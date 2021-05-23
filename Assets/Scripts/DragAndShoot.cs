@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Utilities;
 using UnityEngine;
 
 public class DragAndShoot : MonoBehaviour
@@ -53,23 +55,36 @@ public class DragAndShoot : MonoBehaviour
                 DrawTrajectory.Instance.UpdateTrajectory(forceV, rb, transform.position);
             mouseReleasePos = Input.mousePosition;
 
-            if (Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y>100)
-            {
-                mouseReleasePos = Input.mousePosition;
-
-                DrawTrajectory.Instance.HideLine();
-                Shoot(mousePressDownPos - mouseReleasePos);
-                transform.parent = null;
-                isDrag = false;
-                AnimalManager.Instance.isTrajectoryOn = false;
-            }
-            else if(Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y < 100)
-            {
-                DrawTrajectory.Instance.HideLine();
-                isDrag = false;
-                AnimalManager.Instance.isTrajectoryOn = false;
-            }
+            // if (Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y>100)
+            // {
+            //     mouseReleasePos = Input.mousePosition;
+            //
+            //     DrawTrajectory.Instance.HideLine();
+            //     Shoot(mousePressDownPos - mouseReleasePos);
+            //     transform.parent = null;
+            //     isDrag = false;
+            //     AnimalManager.Instance.isTrajectoryOn = false;
+            // }
+            // else if(Input.GetMouseButtonUp(0) && mousePressDownPos.y - mouseReleasePos.y < 100)
+            // {
+            //     DrawTrajectory.Instance.HideLine();
+            //     isDrag = false;
+            //     AnimalManager.Instance.isTrajectoryOn = false;
+            // }
         }
-        
+    }
+
+    private void Update()
+    {
+        // #patch
+        if (isDrag && DInput.IsMouseReleased)
+        {
+            mouseReleasePos = Input.mousePosition;
+            DrawTrajectory.Instance.HideLine();
+            Shoot(mousePressDownPos - mouseReleasePos);
+            transform.parent = null;
+            isDrag = false;
+            AnimalManager.Instance.isTrajectoryOn = false;
+        }
     }
 }
