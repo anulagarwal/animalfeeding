@@ -11266,6 +11266,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2232137691101822674, guid: c705100eeeac4497abe18e59b58bc6e6, type: 3}
+      propertyPath: patienceReduceRate
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2233578770922763828, guid: c705100eeeac4497abe18e59b58bc6e6, type: 3}
       propertyPath: m_Name
       value: Bear
