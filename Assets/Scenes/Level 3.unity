@@ -1450,6 +1450,7 @@ GameObject:
   - component: {fileID: 221497163}
   - component: {fileID: 221497162}
   - component: {fileID: 221497164}
+  - component: {fileID: 221497165}
   m_Layer: 0
   m_Name: GorillaPosition
   m_TagString: Position
@@ -1468,7 +1469,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.56, y: 2.22, z: 1.27}
+  m_Size: {x: 1.01, y: 0.95, z: 0.94}
   m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!4 &221497163
 Transform:
@@ -1478,7 +1479,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221497161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.99, y: -2.25, z: -0.61}
+  m_LocalPosition: {x: -0.43, y: -2.25, z: -3.74}
   m_LocalScale: {x: 1.3341, y: 1.2933, z: 1.4051}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1498,8 +1499,24 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!208 &221497165
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221497161}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &251805280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1127567076930584, guid: 5b5ea93c44ed4437781305935ec54576, type: 3}
