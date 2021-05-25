@@ -11,6 +11,8 @@ public class AnimalManager : MonoBehaviour
     #region Attributes
     [Header("Attributes")]
     [SerializeField] public List<Animal> animals;
+    [SerializeField] public List<Animal> lateAnimals;
+
     [SerializeField] float maxProgressValue;
     [SerializeField] float currentProgressValue;
     public bool isTrajectoryOn;
@@ -46,6 +48,7 @@ public class AnimalManager : MonoBehaviour
         {
             maxProgressValue += a.maxFoodInput;
         }
+      
     }
 
     // Update is called once per frame
@@ -66,24 +69,31 @@ public class AnimalManager : MonoBehaviour
     }
     public void UpdateAnimalHunger()
     {
+        if (animalsFed < lateAnimals.Count)
+        {
+            lateAnimals[animalsFed].WalkToField(lateAnimals[animalsFed].pos.position, lateAnimals[animalsFed].animalType);
+        }
         animalsFed++;
+        
         if(animalsFed == animals.Count)
         {
             GameManager.Instance.WinLevel();
         }
     }
-
-    public void UpdateAnimalDots()
-    {
-        
-
-    }
+    
 
     public void EnableAnimals()
     {
         foreach (Animal a in animals)
         {
             a.enabled = true;
+            a.isHungry = true;
+            a.isInField = true;
+        }
+        foreach(Animal a in lateAnimals)
+        {
+            a.isHungry = false;
+            a.isInField = false;
         }
     }
 

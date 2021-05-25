@@ -15,12 +15,13 @@ public class Animal : MonoBehaviour
     #region Attributes
     [Header("Attributes")]
    
-    [SerializeField] private EnumsManager.AnimalType animalType;
+    [SerializeField] public EnumsManager.AnimalType animalType;
     [SerializeField] public List<EnumsManager.FoodType> preferredFood;
     [SerializeField] public int currentFoodInput;
     [SerializeField] public int maxFoodInput;
     public bool isHungry = true;   
     [SerializeField] private float scaleIncrease = 0.08f;
+    public bool isInField;
 
     [Header("Patience Bar Attributes")]
     [SerializeField] public float maxPatience;
@@ -33,6 +34,8 @@ public class Animal : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Image tick;
+    [SerializeField] public Transform pos;
+
 
 
     #endregion
@@ -53,6 +56,7 @@ public class Animal : MonoBehaviour
         }
     }
 
+  
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -82,11 +86,24 @@ public class Animal : MonoBehaviour
                 Destroy(collision.gameObject, 1f);
             }
         }
+
+        if (collision.gameObject.tag == "Position")
+        {
+            isHungry = true;
+            isInField = true;
+            this.enabled = true;
+            animator.SetBool("isWalking", false);
+            currentPatience = maxPatience;
+            Destroy(collision.gameObject);
+            agent.isStopped = true;
+        }
     }
+
+   
 
     private void OnDisable()
     {
-        
+       // GetComponentInChildren<Canvas>().gameObject.SetActive(false);
     }
     #endregion
 
@@ -106,7 +123,7 @@ public class Animal : MonoBehaviour
             AnimalManager.Instance.UpdateAnimalHunger();
             GetComponentInChildren<Canvas>().gameObject.SetActive(false);
             isHungry = false;
-           
+            isInField = false;  
         }
 
         IncreasePatience(foodPatienceIncrease);
@@ -116,7 +133,11 @@ public class Animal : MonoBehaviour
     {
         tick.gameObject.SetActive(false);
     }
-
+    public void WalkToField(Vector3 pos, EnumsManager.AnimalType type)
+    {
+        Walk(pos, type);
+        isInField = true;
+    }
     public void Walk(Vector3 pos, EnumsManager.AnimalType type)
     {
         switch (type)
@@ -130,11 +151,14 @@ public class Animal : MonoBehaviour
             case EnumsManager.AnimalType.Giraffe:
                 animator.SetBool("isWalking", true);
                 break;
-
             case EnumsManager.AnimalType.Dog:
                 animator.SetBool("isWalking", true);
                 break;
+            case EnumsManager.AnimalType.Gorilla:
+                animator.SetBool("isWalking", true);
+                break;
         }
+        agent.isStopped = false;
         agent.SetDestination(pos);
     }
 

@@ -33,7 +33,7 @@ public class FoodHandler : MonoBehaviour
         {
             startTime = Time.time;
             isSpawning = false;
-            if (AnimalManager.Instance.animalsFed == 0)
+           /* if (AnimalManager.Instance.animalsFed == 0)
             {
                 foreach (Transform t in spawnPoints)
                 {
@@ -45,27 +45,28 @@ public class FoodHandler : MonoBehaviour
                 }
             }
             else if(AnimalManager.Instance.animalsFed < AnimalManager.Instance.animals.Count)
-            {
+            {*/
                 List<EnumsManager.FoodType> availableType = new List<EnumsManager.FoodType>();
 
                 foreach(Animal a in AnimalManager.Instance.animals)
                 {
-                    if (a.isHungry)
+                    if (a.isInField)
                     {
                         availableType.AddRange(a.preferredFood); 
                     }
                 }
-
+                
                 foreach (Transform t in spawnPoints)
                 {
                     if (t.childCount == 0)
                     {                        
-                        EnumsManager.FoodType f = availableType[Random.Range(0, availableType.Count)];                        
+                        EnumsManager.FoodType f = availableType[Random.Range(0, availableType.Count)];
+                        
                         SpawnItem(foodItems.Find( x=> x.GetComponent<Food>().type== f), Vector3.zero, t);
                         break;
                     }
                 }
-            }
+            //}
 
         }
 
