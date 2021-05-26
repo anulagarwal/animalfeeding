@@ -56,8 +56,6 @@ public class Animal : MonoBehaviour
         }
     }
 
-  
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Food")
@@ -165,12 +163,34 @@ public class Animal : MonoBehaviour
     public void IncreasePatience(float val)
     {
         currentPatience += val;
-        patienceBar.fillAmount = currentPatience / maxPatience;
+        UpdateHungerBar();
     }
+
+    private void UpdateHungerBar()
+    {
+        var f = currentPatience / maxPatience;
+        patienceBar.fillAmount = f;
+
+        var s = GameplaySettings.Instance;
+        if (f > .66f)
+        {
+            patienceBar.color = s.green;
+        }
+        else if (f > .33f)
+        {
+            patienceBar.color = s.yellow;
+        }
+        else
+        {
+            patienceBar.color = s.red;
+        }
+    }
+    
     public void ReducePatience(float val)
     {
         currentPatience -= val;
-        patienceBar.fillAmount = currentPatience / maxPatience;
+        UpdateHungerBar();
+        
         currentPatience = Mathf.Max(0, currentPatience);
         currentPatience = Mathf.Min(maxPatience, currentPatience);
 

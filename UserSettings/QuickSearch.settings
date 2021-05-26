@@ -16,7 +16,7 @@ filters = {
 	settings = true
 }
 scopes = {
-	"last_search.AB59B443" = "t: prefab fl"
+	"last_search.AB59B443" = "t: prefab angr"
 }
 providers = {
 	asset = {

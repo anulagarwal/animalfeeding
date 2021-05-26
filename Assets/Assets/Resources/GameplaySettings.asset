@@ -16,3 +16,6 @@ MonoBehaviour:
   filledDotColor: {r: 0.33333334, g: 0.72156864, b: 1, a: 1}
   patienceOnStart: {x: 0.8, y: 1}
   forceFactor: 4
+  green: {r: 0.43405452, g: 1, b: 0.23113209, a: 1}
+  yellow: {r: 1, g: 0.9408735, b: 0.2216981, a: 1}
+  red: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}

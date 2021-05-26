@@ -17,7 +17,12 @@ namespace D2D.Gameplay
         [Space] 
         
         public Vector2 patienceOnStart;
-
         public float forceFactor;
+
+        [Space]
+        
+        public Color green;
+        public Color yellow;
+        public Color red;
     }
 }
