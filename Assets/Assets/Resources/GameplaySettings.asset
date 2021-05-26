@@ -15,3 +15,4 @@ MonoBehaviour:
   normalDotColor: {r: 1, g: 1, b: 1, a: 0.5372549}
   filledDotColor: {r: 0.33333334, g: 0.72156864, b: 1, a: 1}
   patienceOnStart: {x: 0.8, y: 1}
+  forceFactor: 4

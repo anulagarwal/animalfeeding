@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using D2D.Utilities;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class DrawTrajectory : MonoBehaviour
     [SerializeField] private List<GameObject> _sphere = new List<GameObject>();
 
 
+    public Vector3 LastPoint { get; private set; }
 
     #region Singleton
     public static DrawTrajectory Instance;
@@ -55,6 +57,9 @@ public class DrawTrajectory : MonoBehaviour
         {
             _sphere.Add(Instantiate(GameManager.Instance.sphere, v, Quaternion.identity));
         }
+
+        if (!_linePoints.IsNullOrEmpty())
+            LastPoint = _linePoints.Last();
     }
 
     public void HideLine()

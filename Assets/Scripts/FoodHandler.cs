@@ -59,10 +59,13 @@ public class FoodHandler : MonoBehaviour
                 foreach (Transform t in spawnPoints)
                 {
                     if (t.childCount == 0)
-                    {                        
-                        EnumsManager.FoodType f = availableType[Random.Range(0, availableType.Count)];
+                    {
+                        if (!availableType.IsNullOrEmpty())
+                        {
+                            EnumsManager.FoodType f = availableType.GetRandomElement();
                         
-                        SpawnItem(foodItems.Find( x=> x.GetComponent<Food>().type== f), Vector3.zero, t);
+                            SpawnItem(foodItems.Find( x=> x.GetComponent<Food>().type== f), Vector3.zero, t);
+                        }
                         break;
                     }
                 }

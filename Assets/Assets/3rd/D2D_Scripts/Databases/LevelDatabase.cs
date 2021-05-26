@@ -48,7 +48,7 @@ namespace D2D.Databases
                     value = SceneLoader.CountOfLevelsInGame;
                 }
                 
-                PlayerPrefs.GetInt(nameof(RecentLevel), value);
+                PlayerPrefs.SetInt(nameof(RecentLevel), value);
             }
         }
 

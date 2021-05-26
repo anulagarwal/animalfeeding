@@ -35,7 +35,7 @@ namespace D2D.UI
             
             int nextLevel = _level.LevelNumber + 1;
             if (ScenesSettings.Instance.scenesLooped && _level.IsLast)
-                nextLevel = DMath.Random(1, 5);
+                nextLevel = DMath.Random(1, 2);
             
             loader.LoadLevel(nextLevel);
         }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c39e9ca1-c710-4231-92f2-66f7e47416ca" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -7,15 +10,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/64/075d55f8/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Managers/AnimalManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DrawTrajectory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/Gameplay/Data/GameplaySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/FoodHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/Gameplay/Data/GameplaySettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Food.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DrawTrajectory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DragAndShoot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FoodHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/Databases/LevelDatabase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Assets/3rd/D2D_Scripts/UI/Buttons/Listeners/GoNextLevelOnClick.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1soIxHGk8VyhOe21eVZd6s0Xeu8" />
@@ -65,6 +74,7 @@
       <workItem from="1621532769486" duration="3023000" />
       <workItem from="1621679581638" duration="601000" />
       <workItem from="1621760682768" duration="2971000" />
+      <workItem from="1622023445035" duration="1703000" />
     </task>
     <servers />
   </component>

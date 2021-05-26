@@ -1273,9 +1273,9 @@ GameObject:
   - component: {fileID: 7773441394106542882}
   - component: {fileID: 7731943720388510372}
   - component: {fileID: 7495503465821662998}
-  - component: {fileID: 7688571791358625910}
   - component: {fileID: 7688571791358625909}
   - component: {fileID: 7688571791358625904}
+  - component: {fileID: 553511752877873176}
   m_Layer: 0
   m_Name: Cat Orange
   m_TagString: Untagged
@@ -1359,19 +1359,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &7688571791358625910
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689202056523308680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.7, z: 0.49}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7688571791358625909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,6 +1377,7 @@ MonoBehaviour:
   maxFoodInput: 5
   isHungry: 1
   scaleIncrease: 0.5
+  isInField: 0
   maxPatience: 18
   currentPatience: 0
   foodPatienceIncrease: 4
@@ -1398,6 +1386,7 @@ MonoBehaviour:
   animator: {fileID: 7773441394106542882}
   agent: {fileID: 7495503465821662998}
   tick: {fileID: 2592701925784716550}
+  pos: {fileID: 0}
 --- !u!114 &7688571791358625904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,6 +1406,19 @@ MonoBehaviour:
   attacking: {fileID: 0}
   death: {fileID: 0}
   sleeping: {fileID: 0}
+--- !u!135 &553511752877873176
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689202056523308680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.60618526
+  m_Center: {x: 5.6232097e-10, y: 0.20429945, z: 0.14937106}
 --- !u!1 &7689212193732668034
 GameObject:
   m_ObjectHideFlags: 0

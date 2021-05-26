@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using D2D.Gameplay;
 using D2D.Utilities;
+using D2D.Utilities.CodeSugar;
+using DG.Tweening;
 using UnityEngine;
 
 public class DragAndShoot : MonoBehaviour
@@ -39,8 +42,20 @@ public class DragAndShoot : MonoBehaviour
     {
         if (isShoot)
             return;
-        
-        rb.AddForce(new Vector3(force.x, force.y/2, force.y) * forceMultiplier);
+
+        var x = force.x;
+        var z = force.y;
+        var y = force.y / 2;
+        if (z < 0)
+        {
+            var f = GameplaySettings.Instance.forceFactor; 
+            z *= -f;
+            y *= f;
+            x *= -f;
+        }
+
+        transform.DOJump(DrawTrajectory.Instance.LastPoint, 1, 1, 1f);
+        // rb.AddForce(new Vector3(x, y, z) * forceMultiplier);
         isShoot = true;
     }
     // Update is called once per frame

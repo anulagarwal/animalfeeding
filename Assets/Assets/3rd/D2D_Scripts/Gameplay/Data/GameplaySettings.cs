@@ -17,5 +17,7 @@ namespace D2D.Gameplay
         [Space] 
         
         public Vector2 patienceOnStart;
+
+        public float forceFactor;
     }
 }

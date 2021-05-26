@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2425124937554875545}
-  - component: {fileID: 2425519434642056872}
   - component: {fileID: 2425519434642056873}
   - component: {fileID: 2425519434642056874}
   - component: {fileID: 2425519434642056877}
+  - component: {fileID: 3370069408952258938}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Food
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 26.57}
---- !u!65 &2425519434642056872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2425961682307516415}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.61, z: 0.62}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2425519434642056873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  scaleDownRate: 0.01
 --- !u!114 &2425519434642056874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +78,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &3370069408952258938
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425961682307516415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.36
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2426020995011191119
 GameObject:
   m_ObjectHideFlags: 0
